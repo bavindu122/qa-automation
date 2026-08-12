@@ -8,6 +8,7 @@ allure-results/
 allure-report/
 screenshots/
 logs/
+tmp/
 
 # IDE and operating system
 .idea/
@@ -21,4 +22,3 @@ logs/
 # Local configuration and secrets
 .env
 config.local.properties
-

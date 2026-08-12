@@ -16,7 +16,7 @@ uses Java, Selenium WebDriver, TestNG, Maven, and the Page Object Model.
 - [x] Five automated scenarios
 - [x] Intentional failure and debugging evidence
 - [x] Five-minute reflection video guide
-- [ ] PDF report
+- [x] PDF report
 - [ ] Final repository audit
 
 ## Repository structure
@@ -50,6 +50,16 @@ mvn clean test -Dheadless=false
 
 Environment and catalog data can be changed in
 `src/test/resources/config.properties` or overridden using `-Dkey=value`.
+
+## Assignment deliverables
+
+- `output/report/nopcommerce-qa-automation-report.pdf` - rendered assignment report
+- `output/report/nopcommerce-qa-automation-report.docx` - editable report source
+- `docs/03-manual-test-scenarios.md` - 18 detailed manual scenarios
+- `docs/04-automation-decision.md` - selection and exclusion rationale
+- `docs/08-video-reflection-guide.md` - five-minute recording guide
+- `docs/09-viva-preparation.md` - viva understanding prompts
+- `AI_USAGE.md` - AI assistance disclosure and activity log
 
 ## Responsible demo usage
 
