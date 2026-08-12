@@ -17,7 +17,7 @@ uses Java, Selenium WebDriver, TestNG, Maven, and the Page Object Model.
 - [x] Intentional failure and debugging evidence
 - [x] Five-minute reflection video guide
 - [x] PDF report
-- [ ] Final repository audit
+- [x] Final repository audit
 
 ## Repository structure
 
@@ -59,6 +59,7 @@ Environment and catalog data can be changed in
 - `docs/04-automation-decision.md` - selection and exclusion rationale
 - `docs/08-video-reflection-guide.md` - five-minute recording guide
 - `docs/09-viva-preparation.md` - viva understanding prompts
+- `docs/10-submission-checklist.md` - final human actions and integrity checks
 - `AI_USAGE.md` - AI assistance disclosure and activity log
 
 ## Responsible demo usage
