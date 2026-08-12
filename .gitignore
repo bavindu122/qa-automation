@@ -1,0 +1,24 @@
+# Maven
+target/
+dependency-reduced-pom.xml
+
+# Test output
+test-output/
+allure-results/
+allure-report/
+screenshots/
+logs/
+
+# IDE and operating system
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
+.DS_Store
+
+# Local configuration and secrets
+.env
+config.local.properties
+
