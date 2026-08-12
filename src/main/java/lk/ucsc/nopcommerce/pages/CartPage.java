@@ -19,11 +19,12 @@ public final class CartPage extends BasePage {
     }
 
     public List<String> getProductNames() {
-        return visibleElements(PRODUCT_NAMES).stream()
+        return driver.findElements(PRODUCT_NAMES).stream()
                 .map(WebElement::getText)
                 .map(String::trim)
                 .toList();
     }
+
 
     public String getTotalPrice() {
         return text(TOTAL_PRICE);
