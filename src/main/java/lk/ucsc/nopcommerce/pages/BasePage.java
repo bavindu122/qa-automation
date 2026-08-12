@@ -67,4 +67,12 @@ public abstract class BasePage {
     protected void waitForClass(By locator, String className) {
         wait.until(ExpectedConditions.attributeContains(locator, "class", className));
     }
+
+    protected String acceptAlertAndGetText() {
+        org.openqa.selenium.Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        String text = alert.getText();
+        alert.accept();
+        return text;
+    }
 }
+
