@@ -9,7 +9,7 @@ uses Java, Selenium WebDriver, TestNG, Maven, and the Page Object Model.
 ## Assignment progress
 
 - [x] Website selection
-- [ ] Requirement analysis
+- [x] Requirement analysis
 - [ ] At least 15 manual test scenarios
 - [ ] Five automation decisions
 - [ ] Framework design
