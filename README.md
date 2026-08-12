@@ -1,22 +1,18 @@
-# nopCommerce QA Automation Assignment
+# Demoblaze QA Automation Assignment
 
-QA analysis and browser automation project for the public
-[nopCommerce demo store](https://demo.nopcommerce.com/).
+QA analysis and browser automation project for the public [Demoblaze Store](https://www.demoblaze.com/).
 
-The project follows the UCSC Practical Take-Home Assignment requirements and
-uses Java, Selenium WebDriver, TestNG, Maven, and the Page Object Model.
+The project follows the UCSC Practical Take-Home Assignment requirements and uses Java, Selenium WebDriver, TestNG, Maven, and the Page Object Model (POM).
 
 ## Assignment progress
 
-- [x] Website selection
+- [x] Website selection (Demoblaze - free of Cloudflare anti-bot protection)
 - [x] Requirement analysis
-- [x] At least 15 manual test scenarios
+- [x] Manual test scenarios
 - [x] Five automation decisions
-- [x] Framework design
-- [x] Five automated scenarios
+- [x] Framework design (Page Object Model)
+- [x] Five automated scenarios (Login rejection, Category filtering, Add to cart, Remove from cart, Order checkout)
 - [x] Intentional failure and debugging evidence
-- [x] Five-minute reflection video guide
-- [x] PDF report
 - [x] Final repository audit
 
 ## Repository structure
@@ -38,6 +34,8 @@ Selenium Manager resolves the matching ChromeDriver automatically.
 
 ## Run the suite
 
+Run headless:
+
 ```bash
 mvn clean test
 ```
@@ -48,23 +46,12 @@ Run with a visible browser:
 mvn clean test -Dheadless=false
 ```
 
-Environment and catalog data can be changed in
-`src/test/resources/config.properties` or overridden using `-Dkey=value`.
+Environment and catalog data can be changed in `src/test/resources/config.properties` or overridden using `-Dkey=value`.
 
-## Assignment deliverables
+## Automated Scenarios Overview
 
-- `output/report/nopcommerce-qa-automation-report.pdf` - rendered assignment report
-- `output/report/nopcommerce-qa-automation-report.docx` - editable report source
-- `docs/03-manual-test-scenarios.md` - 18 detailed manual scenarios
-- `docs/04-automation-decision.md` - selection and exclusion rationale
-- `docs/08-video-reflection-guide.md` - five-minute recording guide
-- `docs/09-viva-preparation.md` - viva understanding prompts
-- `docs/10-submission-checklist.md` - final human actions and integrity checks
-- `AI_USAGE.md` - AI assistance disclosure and activity log
-
-## Responsible demo usage
-
-The test suite targets only the official public demo environment. It will use
-synthetic test data, avoid real payment information, and keep tests independent
-where practical. The demo may contain changes from other users and is restored
-to its initial state every hour.
+1. **AUT-01 / MTS-01**: Reject invalid login credentials (modal input & alert assertion).
+2. **AUT-02 / MTS-02**: Filter products by category (Laptops filter validation).
+3. **AUT-03 / MTS-03**: Add a simple product to cart (Samsung galaxy s6 add & cart verification).
+4. **AUT-04 / MTS-04**: Remove a product from cart (Cart item deletion & list verification).
+5. **AUT-05 / MTS-05**: Complete product order checkout (Place order modal, synthetic buyer details & confirmation popup).

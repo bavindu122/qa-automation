@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="nopCommerce Assignment Suite" parallel="false" verbose="1">
+<suite name="Demoblaze QA Automation Suite" parallel="false" verbose="1">
     <listeners>
         <listener class-name="lk.ucsc.nopcommerce.listeners.TestFailureListener"/>
     </listeners>
@@ -10,4 +10,3 @@
         </packages>
     </test>
 </suite>
-

@@ -2,46 +2,34 @@ package lk.ucsc.nopcommerce.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
+/** Page Object representing Demoblaze Product Details Page. */
 public final class ProductPage extends BasePage {
-    private final By productName = By.cssSelector(".product-essential .product-name h1");
-    private final By quantity = By.cssSelector(".overview .qty-input");
-    private final By addToCart = By.cssSelector(".overview .add-to-cart-button");
-    private final By addToCompare = By.cssSelector(
-            ".overview .add-to-compare-list-button");
-    private final By successNotification = By.cssSelector(".bar-notification.success");
+    private static final By PRODUCT_TITLE = By.cssSelector(".name");
+    private static final By PRODUCT_PRICE = By.cssSelector(".price-container");
+    private static final By ADD_TO_CART_BUTTON = By.xpath("//a[text()='Add to cart']");
+    private static final By CART_LINK = By.id("cartur");
 
     public ProductPage(WebDriver driver) {
         super(driver);
     }
 
-    public ProductPage waitUntilOpen() {
-        isDisplayed(productName);
-        return this;
+    public String getProductTitle() {
+        return text(PRODUCT_TITLE);
     }
 
-    public String getProductName() {
-        return text(productName);
+    public String getProductPrice() {
+        return text(PRODUCT_PRICE);
     }
 
-    public ProductPage addToCart(int requestedQuantity) {
-        type(quantity, String.valueOf(requestedQuantity));
-        click(addToCart);
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(
-                successNotification, "shopping cart"));
-        return this;
-    }
-
-    public ProductPage addToComparison() {
-        click(addToCompare);
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(
-                successNotification, "product comparison"));
+    public ProductPage addToCart() {
+        click(ADD_TO_CART_BUTTON);
+        acceptAlertAndGetText();
         return this;
     }
 
     public CartPage openCart() {
-        driver.get(lk.ucsc.nopcommerce.config.ConfigReader.get("baseUrl") + "cart");
-        return new CartPage(driver).waitUntilOpen();
+        click(CART_LINK);
+        return new CartPage(driver);
     }
 }
