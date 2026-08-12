@@ -11,7 +11,7 @@ uses Java, Selenium WebDriver, TestNG, Maven, and the Page Object Model.
 - [x] Website selection
 - [x] Requirement analysis
 - [x] At least 15 manual test scenarios
-- [ ] Five automation decisions
+- [x] Five automation decisions
 - [ ] Framework design
 - [ ] Five automated scenarios
 - [ ] Intentional failure and debugging evidence
