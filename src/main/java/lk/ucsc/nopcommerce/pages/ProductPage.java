@@ -30,6 +30,11 @@ public final class ProductPage extends BasePage {
 
     public CartPage openCart() {
         click(CART_LINK);
+        waitForUrlContaining("cart.html");
+        try {
+            Thread.sleep(1500); // Allow Demoblaze AJAX viewcart response to populate table
+        } catch (InterruptedException ignored) {
+        }
         return new CartPage(driver);
     }
 }
