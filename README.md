@@ -8,7 +8,7 @@ uses Java, Selenium WebDriver, TestNG, Maven, and the Page Object Model.
 
 ## Assignment progress
 
-- [ ] Website selection
+- [x] Website selection
 - [ ] Requirement analysis
 - [ ] At least 15 manual test scenarios
 - [ ] Five automation decisions
@@ -37,4 +37,3 @@ The test suite targets only the official public demo environment. It will use
 synthetic test data, avoid real payment information, and keep tests independent
 where practical. The demo may contain changes from other users and is restored
 to its initial state every hour.
-
