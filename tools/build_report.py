@@ -359,8 +359,18 @@ def build_report():
     ]
     add_table(doc, ["Check", "Status", "Evidence"], results, [2800, 1300, 5260], size=9)
     add_body(doc, "The live suite result is not reported as a pass. Five screenshots show the same 'Performing security verification' page, and stack traces time out at each test's first nopCommerce locator. This common first divergence classifies the result as an external environment blocker. No attempt was made to bypass the site's security control.")
+    evidence_path = ROOT / "evidence" / "environment" / "cloudflare-verification-20260812.png"
+    doc.add_picture(str(evidence_path), width=Inches(4.9))
+    figure = doc.paragraphs[-1]
+    figure.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    figure.paragraph_format.keep_with_next = True
+    caption = doc.add_paragraph("Figure 1. Failure-listener screenshot: nopCommerce security verification replaced the application UI.")
+    caption.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    caption.paragraph_format.space_after = Pt(8)
+    caption.runs[0].italic = True
+    caption.runs[0].font.size = Pt(9)
+    caption.runs[0].font.color.rgb = MUTED
 
-    doc.add_page_break()
     add_heading(doc, "8. Intentional failure and debugging", 1)
     add_body(doc, "Commit 36f3657 introduced a deterministic assertion failure. A captured generic login error contained 'Login was unsuccessful', while the temporary assertion searched for 'No customer account found'. TestNG reported one test, one failure, and an AssertionError at the assertion line.")
     debugging = [
