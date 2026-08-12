@@ -29,4 +29,5 @@ viva, and clearly identifying any further AI-assisted work in this file.
 |---|---|---|
 | 2026-08-11 | Analysed the assignment PDF and compared candidate websites | Shortlisted suitable public and demo applications |
 | 2026-08-12 | Selected nopCommerce and planned the repository milestones | Initial project repository created |
-
+| 2026-08-12 | Reviewed live demo flows and generated framework/test drafts | Five Page Object Model scenarios implemented and reviewed by the student |
+| 2026-08-12 | Assisted with execution and debugging documentation | Compile result, Cloudflare constraint, and controlled assertion fix recorded |

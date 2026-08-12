@@ -14,7 +14,7 @@ uses Java, Selenium WebDriver, TestNG, Maven, and the Page Object Model.
 - [x] Five automation decisions
 - [x] Framework design
 - [x] Five automated scenarios
-- [ ] Intentional failure and debugging evidence
+- [x] Intentional failure and debugging evidence
 - [ ] Five-minute reflection video guide
 - [ ] PDF report
 - [ ] Final repository audit
