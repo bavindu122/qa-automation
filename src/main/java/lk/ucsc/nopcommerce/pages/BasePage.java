@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /** Shared synchronisation and interaction behaviour for all Page Objects. */
@@ -39,15 +40,31 @@ public abstract class BasePage {
     }
 
     protected boolean isDisplayed(By locator) {
-        try {
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
-        } catch (RuntimeException ignored) {
-            return false;
-        }
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
     }
 
     protected void waitForUrlContaining(String value) {
         wait.until(ExpectedConditions.urlContains(value));
     }
-}
 
+    protected void selectByText(By locator, String text) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        new Select(element).selectByVisibleText(text);
+    }
+
+    protected void selectFirstRadio(By locator) {
+        List<WebElement> radios = wait.until(
+                ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+        WebElement firstEnabled = radios.stream()
+                .filter(WebElement::isEnabled)
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("No enabled option found: " + locator));
+        if (!firstEnabled.isSelected()) {
+            firstEnabled.click();
+        }
+    }
+
+    protected void waitForClass(By locator, String className) {
+        wait.until(ExpectedConditions.attributeContains(locator, "class", className));
+    }
+}
