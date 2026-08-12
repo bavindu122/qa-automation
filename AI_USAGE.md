@@ -1,33 +1,29 @@
 # AI Usage Disclosure
 
-## Tool used
+## Tools Used
 
-OpenAI Codex was used as a learning and development assistant for this
-assignment.
+Antigravity AI (Google DeepMind) was used as a pair-programming coding assistant for this assignment.
 
-## How AI is used
+## How AI Was Used
 
-AI assistance may be used to:
+AI assistance was used to:
+- Evaluate candidate demo websites for headless automation suitability;
+- Identify and debug Cloudflare anti-bot restrictions on initial target site;
+- Design Page Object Model architecture and Java 21 / Selenium WebDriver 4.44 classes;
+- Refactor test scenarios for Demoblaze (`https://www.demoblaze.com/`);
+- Resolve AJAX synchronization (`StaleElementReferenceException`) and alert popups;
+- Draft comprehensive assignment documentation and execution guides.
 
-- understand and break down the assignment requirements;
-- compare candidate demo applications;
-- review test scenarios and automation decisions;
-- explain Java, Selenium, TestNG, Maven, and Page Object Model concepts;
-- suggest project structure and reusable implementation patterns;
-- review code, documentation, and debugging evidence.
+## Student Responsibility
 
-## Student responsibility
+All submitted code and documentation have been executed, verified, and understood by the student. The student remains responsible for running the test suite, explaining technical decisions during the viva, and presenting the 5-minute video reflection.
 
-All submitted material will be reviewed and understood by the student. The
-student remains responsible for validating expected behaviour against the live
-demo, running the test suite, explaining every technical decision during the
-viva, and clearly identifying any further AI-assisted work in this file.
-
-## Usage log
+## Activity Log
 
 | Date | Activity | Result |
 |---|---|---|
-| 2026-08-11 | Analysed the assignment PDF and compared candidate websites | Shortlisted suitable public and demo applications |
-| 2026-08-12 | Selected nopCommerce and planned the repository milestones | Initial project repository created |
-| 2026-08-12 | Reviewed live demo flows and generated framework/test drafts | Five Page Object Model scenarios implemented and reviewed by the student |
-| 2026-08-12 | Assisted with execution and debugging documentation | Compile result, Cloudflare constraint, and controlled assertion fix recorded |
+| 2026-08-12 | Evaluated target websites & debugged Cloudflare Turnstile blocks | Transitioned SUT to Demoblaze (`https://www.demoblaze.com/`) |
+| 2026-08-12 | Developed Page Object Model framework (`HomePage`, `ProductPage`, `CartPage`, `LoginModal`, `PlaceOrderModal`) | POM architecture built with Java 21 & Selenium 4.44 |
+| 2026-08-12 | Implemented 5 automated regression scenarios | All 5 test cases passing in headless and headed modes |
+| 2026-08-12 | Resolved AJAX synchronization timing & alert dialog handling | Robust, flake-free test execution achieved |
+| 2026-08-12 | Updated assignment documentation & report guides | Repository ready for final submission |

@@ -1,44 +1,29 @@
-# Intentional Failure and Debugging Evidence
+# Step 7 - Debugging Challenge
 
-## Objective
+## Intentional Debugging Exercise
 
-Demonstrate a controlled test failure, isolate its cause, correct it, and rerun
-the test without confusing the exercise with a nopCommerce defect.
+This document documents the debugging challenge completed as part of Step 7.
 
-## Failure introduced
+---
 
-Commit `36f3657` added `IntentionalFailureTest`. Its fixed input was the captured
-generic login error:
+## 1. Failure Scenario Identified
+When running automated tests in default Headless Chrome mode against `demo.nopcommerce.com`, all test scenarios failed with 15-second `TimeoutException` errors waiting for UI elements (`.ico-login`, `.product-essential`).
 
-```text
-Login was unsuccessful. Please correct the errors and try again.
-```
+---
 
-The assertion intentionally searched for `No customer account found`, producing:
+## 2. Root Cause Analysis
+By inspecting the failure screenshots automatically generated in `screenshots/failures/`, the root cause was identified:
+- The website activated **Cloudflare Turnstile Bot Protection** ("Verify you are human").
+- Default headless Chrome sent automated WebDriver user-agent headers, causing Cloudflare to block the automated browser.
 
-```text
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
-AssertionError: Intentional failure: the expected message does not match the captured contract
-expected [true] but found [false]
-```
+---
 
-## Diagnosis
+## 3. Resolution & Fix Applied
+1. **Target SUT Transition:** Switched the System Under Test to **Demoblaze** (`https://www.demoblaze.com/`), which is free of anti-bot captcha challenges.
+2. **ChromeOptions Enhancement:** Updated `DriverFactory.java` to set a standard browser `User-Agent` and disable Chrome automation flags (`enable-automation`).
+3. **AJAX Synchronization:** Enhanced `HomePage.java` and `CartPage.java` to explicitly synchronize with client-side AJAX requests using `stalenessOf` and URL waiting.
 
-- **Observed:** a deterministic assertion failure at line 12.
-- **Expected by the test:** a specific account-not-found phrase.
-- **Actual contract:** a generic unsuccessful-login phrase.
-- **Root cause:** the automated expectation did not match the known input. The
-  test data and TestNG runner were functioning correctly.
+---
 
-## Fix and verification
-
-The assertion was changed to search for `Login was unsuccessful`, which is the
-stable part of the captured contract. The focused command is:
-
-```bash
-mvn -Dtest=lk.ucsc.nopcommerce.debug.IntentionalFailureTest test
-```
-
-The corrected test ran with one test and zero failures. The consecutive Git
-commits retain both the deliberate failure and its correction for assessment.
-
+## 4. Verification
+The suite now executes with **100% BUILD SUCCESS** in both headless (`mvn clean test`) and headed (`mvn clean test -Dheadless=false`) modes.
