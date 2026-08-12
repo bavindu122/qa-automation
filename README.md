@@ -12,7 +12,7 @@ uses Java, Selenium WebDriver, TestNG, Maven, and the Page Object Model.
 - [x] Requirement analysis
 - [x] At least 15 manual test scenarios
 - [x] Five automation decisions
-- [ ] Framework design
+- [x] Framework design
 - [ ] Five automated scenarios
 - [ ] Intentional failure and debugging evidence
 - [ ] Five-minute reflection video guide
@@ -28,8 +28,28 @@ src/test/java/        TestNG test classes
 src/test/resources/   Test configuration and suite files
 ```
 
-Detailed setup and execution instructions will be added with the automation
-framework milestone.
+## Prerequisites
+
+- JDK 21
+- Maven 3.9 or newer
+- Current stable Google Chrome
+
+Selenium Manager resolves the matching ChromeDriver automatically.
+
+## Run the suite
+
+```bash
+mvn clean test
+```
+
+Run with a visible browser:
+
+```bash
+mvn clean test -Dheadless=false
+```
+
+Environment and catalog data can be changed in
+`src/test/resources/config.properties` or overridden using `-Dkey=value`.
 
 ## Responsible demo usage
 

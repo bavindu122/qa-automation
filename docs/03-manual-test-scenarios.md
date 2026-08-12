@@ -214,8 +214,9 @@ to any clearly identified special-price rules.
 
 **Priority:** P0  
 **Preconditions:** Cart is empty; a simple in-stock product is available.  
-**Test data:** Product: `Apple MacBook Pro` or another currently available simple
-product; quantity: 1.
+**Test data:** Product: `HTC smartphone` or another currently available simple
+product; quantity: 1. The MacBook is excluded because live inspection showed a
+minimum purchase quantity of 2.
 
 **Steps:**
 
@@ -360,4 +361,3 @@ definitions with results.
 | Execution date | Build/environment | Scenario ID | Actual result | Status | Defect ID | Evidence path | Tester |
 |---|---|---|---|---|---|---|---|
 | YYYY-MM-DD | Public demo / Chrome version | MTS-XX | Concise observation | Pass/Fail/Blocked | N/A | `evidence/manual/...png` | Name |
-
